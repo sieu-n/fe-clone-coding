@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles.css">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+  <div class="top"></div>
+  <div class="container">
+    <section class="overal-panel">
+      <div class="overal-header">You Result</div>
+      <div class="overal-score">
+        <p class="overal-value">76</p>
+        <p class="overal-max-value">of 100</p>
+      </div>
+      <div class="overal-description">
+        <h3 class="overal-description-header">Great</h3>
+        <p>You scored higher than 65% of the people who have taken these tests.</p>
+      </div>
+    </section>
+  
+    <section class="category-panel">
+      <h3 class="category-header">Summary</h3>
+  
+      <div class="category-scores">
+        <div class="category-item">
+          <img src="./assets/images/icon-memory.svg">
+          <p class="category-name">Reaction</p>
+          <p class="category-value">80 <span class="category-max-value">/ 100</span></p>
+        </div>
+        <div class="category-item">
+          <img src="./assets/images/icon-reaction.svg">
+          <p class="category-name">Memory</p>
+          <p class="category-value">92 <span class="category-max-value">/ 100</span></p>
+        </div>
+        <div class="category-item">
+          <img src="./assets/images/icon-verbal.svg">
+          <p class="category-name">Verbal</p>
+          <p class="category-value">61 <span class="category-max-value">/ 100</span></p>
+        </div>
+        <div class="category-item">
+          <img src="./assets/images/icon-visual.svg">
+          <p class="category-name">Visual</p>
+          <p class="category-value">72 <span class="category-max-value">/ 100</span></p>
+        </div>
+      </div>
+
+      <button class="button-exit">Continue</button>
+    </section>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  </main>
+</body>
+</html>

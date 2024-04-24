@@ -50,3 +50,10 @@ body {
     margin: 0px 10px 20px 10px;
     color: #9fa3af;
 }
+.attribution {
+    font-size: 11px; 
+    text-align: center; 
+}
+.attribution a {
+    color: hsl(228, 45%, 44%); 
+}
