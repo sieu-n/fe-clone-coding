@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Odin sign-up form</title>
+</head>
+<body>
+    <div id="left-image">
+        <div id="logo-container">
+            <img src="./logo.png" alt="logo" id="logo-img">
+            <h1>Odin</h1>
+        </div>
+    </div>
+    <div class="right-form">
+        <div id="form-desc">
+            <h3>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.
+                Sign up now to get started.
+            </h3>
+            <h3>You know you want to.</h3>
+        </div>
+        <div id="form-elem">
+            <h3>Let's do this!</h3>
+            <form id="myForm" action="https://webhook.site/01e38a87-49e1-46cf-bd57-622bd58e503c" method="post">
+                <label for="first-name">First name:
+                    <input type="text" name="first-name" id="first-name" placeholder="John" required>
+                </label>
+                <label for="last-name">Last name:
+                    <input type="text" name="last-name" id="last-name" placeholder="" required>
+                </label>
+
+                <label for="email" id="email-label">Email:
+                    <input type="email" name="email" placeholder="" id="email" required>
+                </label>
+                <label for="phone-number">Phone number:
+                    <input type="tel" name="phone-number" placeholder="" id="phone-number">
+                </label>
+                <label></label>
+
+                <label for="password">Password:
+                    <input type="password" name="password" placeholder="" id="password" required>
+                </label>
+                <label for="password-confirm">Confirm password:
+                    <input type="password" name="password-confirm" placeholder="" id="password-confirm" required>
+                </label>
+        </div>
+        <div id="form-resolve">
+            <button id="create-account-button" type="submit" form="myForm" value="Update">Create Account</button>
+            <p id="login-text">
+                Already have an account? <a href="#" id="login-link">Log in</a>
+            </p>
+        
+        </div>
+    </div>
+</body>
+</html>
