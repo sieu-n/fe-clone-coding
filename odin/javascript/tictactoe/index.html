@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Tic-tac-toe</title>
+</head>
+<body>
+    <div id="board">
+        <div class="cell cell-o" id="0">O</div>
+        <div class="cell" id="1"></div>
+        <div class="cell" id="2"></div>
+        <div class="cell cell-o" id="3">O</div>
+        <div class="cell" id="4"></div>
+        <div class="cell" id="5"></div>
+        <div class="cell" id="6"></div>
+        <div class="cell cell-x" id="7">X</div>
+        <div class="cell" id="8"></div>
+    </div>
+    <div id="message">X's turn</div>
+
+    <div id="controls-container">
+        O
+        <input type="text" id="player1" value="Player 1">
+        X
+        <input type="text" id="player2" value="Player 2">
+        <button id="reset-button"> Reset game</button>
+        <button id="log"> Log </button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    --primary-color: #80CBC4;
+    --secondary-color: #B4EBE6;
+    --contrast-color: #FFB433;
+    --background-color: #FBF8EF;
+}
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+input {
+    font-size: large;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+}
+
+
+/* board */
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 400px;
+    height: 400px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+    font-size: 50px;
+    cursor: pointer;
+}
+.cell-o {
+    margin: 10px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    cursor: not-allowed;
+}
+.cell-x {
+    margin: 10px;
+    background-color: var(--contrast-color);
+    color: var(--background-color);
+    cursor: not-allowed;
+}
+#player1 {
+    margin-right: 20px;
+}
