@@ -1,17 +1,24 @@
-let Player = function(name, id) {
+let Player = function(obj, id) {
     let getName = function() {
-        return name;
+        return obj.value;
     }
-    let getId = function() {
-        return id;
-    }
-    return {name, id};
+    return {getName, id};
 }
 
 function GameBoard(debug=false) {
     let board = [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
     function getBoard() {
         return board;
+    }
+    function isTie() {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (board[i][j] == -1) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     function hasWinner() {
@@ -20,21 +27,23 @@ function GameBoard(debug=false) {
         // 1 -> p2
         // check rows
         for (let i = 0; i < 3; i++) {
-            if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
+            if (board[i][0] != -1 && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
                 return board[i][0];
             }
         }
         // check columns
         for (let i = 0; i < 3; i++) {
-            if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
+            if (board[0][i] !=-1 && board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
                 return board[0][i];
             }
         }
         // check diagonals
-        if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+        if (board[0][0] != -1 && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
             return board[0][0];
         }
-        
+        if (board[0][2] != -1 && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+            return board[0][2];
+        }
         return -1;
     }
     function place(i, j, currentPlayer) {
@@ -51,12 +60,12 @@ function GameBoard(debug=false) {
     function isValidMove(i, j) {
         return board[i][j] == -1;
     }
-    return {getBoard, hasWinner, place, isValidMove};
+    return {getBoard, hasWinner, place, isValidMove, isTie};
 }
 
 
-let p1 = Player('Player 1', 0);
-let p2 = Player('Player 2', 1);
+let p1 = Player(document.getElementById('player1'), 0);
+let p2 = Player(document.getElementById('player2'), 1);
 
 
 let ticTacToe = function(players) {
@@ -83,11 +92,14 @@ let ticTacToe = function(players) {
         render();
     }
     function makeStatusText() {
-        if (winner != -1) {
-            return 'Player ' + players[winner].name + ' wins!';
+        if (gameBoard.isTie()) {
+            return 'It\'s a tie!';
+        }
+        else if (winner != -1) {
+            return 'Player ' + players[winner].getName() + ' wins!';
         }
         else {
-            return players[currentPlayer].name + "'s turn.";
+            return players[currentPlayer].getName() + "'s turn.";
         }
     }
     function render() {
@@ -125,6 +137,9 @@ let ticTacToe = function(players) {
             winner = currentPlayer;
             playing = false;
         }
+        else if (gameBoard.isTie()) {
+            playing = false;
+        }
         else {
             changePlayer();
         }
@@ -135,39 +150,20 @@ let ticTacToe = function(players) {
         console.log(gameBoard.getBoard());
         console.log({playing, currentPlayer, players, winner})
     }
+    initialize();
     return {gameBoard, players, isPlaying, getCurrentPlayer, print, play, initialize};
-}([p1, [p2]]);
+}([p1, p2]);
 
-/*
-let moves = [
-    [1, 1], 
-    [2, 0],
-    [0, 0],
-    [2, 2],
-    [0, 2],
-    [0, 1],
-    [2, 1],
-    [1, 0],
-    [1, 2]
-]*/
-let moves = [
-    [1, 1], 
-    [2, 0],
-    [0, 0],
-    [2, 1],
-    [2, 2],
-    [0, 1],
-    [2, 1],
-    [1, 0],
-    [1, 2]
-]
+Array.from(document.getElementsByClassName("cell")).forEach(cell => {
+    cell.addEventListener('click', function() {
+        let i = Math.floor(cell.id / 3);
+        let j = cell.id % 3;
+        if (ticTacToe.isPlaying()) {
+            ticTacToe.play(i, j);
+        }
+    });
+});
 
-moves.forEach(element => {
-
-    winner = ticTacToe.play(element[0], element[1]);
-    ticTacToe.print();
-    if (winner != -1) {
-        console.log('Player ' + winner + ' wins!');
-        return;
-    }
+document.getElementById('reset-button').addEventListener('click', function() {
+    ticTacToe.initialize();
 });

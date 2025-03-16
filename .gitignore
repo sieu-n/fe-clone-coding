@@ -1,2 +1,8 @@
 .vercel
 .DS_Store
+
+odin/webpack-practice/node_modules
+odin/webpack-practice/dist
+
+odin/javascript/restaurant/node_modules
+odin/javascript/restaurant/dist

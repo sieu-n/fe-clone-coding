@@ -1,0 +1,168 @@
+:root {
+    /* Primary Colors */
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+
+    /* Neutral Colors */
+    --grey-500: hsl(234, 12%, 34%);
+    --grey-400: hsl(212, 6%, 44%);
+    --white: hsl(0, 0%, 100%);
+
+    /* Typography */
+    --font-size: 15px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--font-size);
+    line-height: 1.5;
+    color: var(--grey-400);
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 5rem 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.header h1 {
+    font-weight: 600;
+    color: var(--grey-500);
+    margin-bottom: 1.5rem;
+    font-size: 2em;
+}
+
+.header h2 {
+    font-weight: 200;
+    color: var(--grey-500);
+    font-size: 2em;
+}
+
+.header p {
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 2rem;
+    position: relative;
+    grid-template-areas: 
+        ". team-builder ."
+        "supervisor team-builder calculator"
+        "supervisor karma calculator"
+        ". karma .";
+}
+
+.feature {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.feature--cyan::before {
+    background-color: var(--cyan);
+}
+
+.feature--red::before {
+    background-color: var(--red);
+}
+
+.feature--orange::before {
+    background-color: var(--orange);
+}
+
+.feature--blue::before {
+    background-color: var(--blue);
+}
+
+.feature h3 {
+    color: var(--grey-500);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.feature p {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.feature-icon {
+    margin-top: auto;
+    align-self: flex-end;
+    width: 64px;
+    height: 64px;
+}
+
+/* Special layout for desktop */
+.feature--supervisor {
+    grid-area: supervisor;
+}
+
+.feature--team-builder {
+    grid-area: team-builder;
+}
+
+.feature--karma {
+    grid-area: karma;
+}
+
+.feature--calculator {
+    grid-area: calculator;
+}
+
+
+/* Mobile layout */
+@media (max-width: 1024px) {
+    .features {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "supervisor"
+            "team-builder"
+            "karma"
+            "calculator";
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
